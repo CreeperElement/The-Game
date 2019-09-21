@@ -11,8 +11,8 @@ dest_files=[ "res://.import/crate.glb-5a6aff87901528d39d2c7fcf7949230e.scn" ]
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="RigidBody"
+nodes/root_name="Crate"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
