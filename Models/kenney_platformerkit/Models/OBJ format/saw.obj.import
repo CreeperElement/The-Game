@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/saw.obj-44f0b3232fcc6278bc678c4e9e3e590c.mesh"
+
+[deps]
+
+files=[ "res://.import/saw.obj-44f0b3232fcc6278bc678c4e9e3e590c.mesh" ]
+
+source_file="res://Models/kenney_platformerkit/Models/OBJ format/saw.obj"
+dest_files=[ "res://.import/saw.obj-44f0b3232fcc6278bc678c4e9e3e590c.mesh", "res://.import/saw.obj-44f0b3232fcc6278bc678c4e9e3e590c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

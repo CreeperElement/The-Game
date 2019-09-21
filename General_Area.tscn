@@ -3,11 +3,13 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="View" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="View"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57002, 3.61188, -12.5539 )
 
-[node name="Wal" type="StaticBody" parent="."]
+[node name="Wall" type="StaticBody" parent="."]
 
-[node name="MeshInstance" type="MeshInstance" parent="Wal"]
+[node name="MeshInstance" type="MeshInstance" parent="Wall"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Wal"]
+[node name="CollisionShape" type="CollisionShape" parent="Wall"]

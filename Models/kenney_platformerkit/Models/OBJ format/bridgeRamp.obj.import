@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bridgeRamp.obj-2167347c70b3a3a49f46b9598619985a.mesh"
+
+[deps]
+
+files=[ "res://.import/bridgeRamp.obj-2167347c70b3a3a49f46b9598619985a.mesh" ]
+
+source_file="res://Models/kenney_platformerkit/Models/OBJ format/bridgeRamp.obj"
+dest_files=[ "res://.import/bridgeRamp.obj-2167347c70b3a3a49f46b9598619985a.mesh", "res://.import/bridgeRamp.obj-2167347c70b3a3a49f46b9598619985a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true

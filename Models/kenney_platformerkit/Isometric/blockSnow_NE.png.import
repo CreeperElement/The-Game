@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/blockSnow_NE.png-b528cc8082c8e1f34615c901c8e3f35d.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Models/kenney_platformerkit/Isometric/blockSnow_NE.png"
+dest_files=[ "res://.import/blockSnow_NE.png-b528cc8082c8e1f34615c901c8e3f35d.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

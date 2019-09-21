@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/hedge.obj-1eb4b6cc089d828b5c2dce62e1a40ea5.mesh"
+
+[deps]
+
+files=[ "res://.import/hedge.obj-1eb4b6cc089d828b5c2dce62e1a40ea5.mesh" ]
+
+source_file="res://Models/kenney_platformerkit/Models/OBJ format/hedge.obj"
+dest_files=[ "res://.import/hedge.obj-1eb4b6cc089d828b5c2dce62e1a40ea5.mesh", "res://.import/hedge.obj-1eb4b6cc089d828b5c2dce62e1a40ea5.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
