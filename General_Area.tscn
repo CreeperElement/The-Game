@@ -8,7 +8,7 @@ albedo_color = Color( 0.4, 0.239216, 0.054902, 1 )
 
 [sub_resource type="PlaneMesh" id=2]
 material = SubResource( 1 )
-size = Vector2( 10, 10 )
+size = Vector2( 100, 100 )
 
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( 5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, -5 )
