@@ -2,109 +2,79 @@
 
 [ext_resource path="res://Models/Brick/brick.obj" type="ArrayMesh" id=1]
 
-[node name="Spatial" type="Spatial"]
-editor/display_folded = true
+[node name="Wall" type="Spatial"]
 
 [node name="brick" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.1, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
-[node name="brick11" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick18" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0 )
+[node name="brick1" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.4, 0.3, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick13" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick20" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.5, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick10" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick21" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.4, 0.7, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick4" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick12" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick19" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 8, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.9, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick5" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick15" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 6, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2, 0.1, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick6" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick16" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 6, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.3, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick7" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick17" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2, 0.5, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick8" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0 )
-mesh = ExtResource( 1 )
-material/0 = null
-
-[node name="brick14" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 6, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.7, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
 
 [node name="brick9" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.2, 0.9, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="brick10" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.6, 0.1, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="brick11" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.4, 0.3, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="brick12" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.6, 0.5, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="brick13" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.4, 0.7, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="brick14" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.6, 0.9, 0 )
 mesh = ExtResource( 1 )
 material/0 = null
