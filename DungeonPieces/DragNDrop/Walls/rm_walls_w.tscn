@@ -10,7 +10,13 @@
 [node name="dirt_model" parent="Ground" instance=ExtResource( 1 )]
 
 [node name="Wall5" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, 7.45058e-008, 0, 1, 0, -7.45058e-008, 0, -1, -0.25, 0, -2.55 )
+transform = Transform( -1, 0, 7.45058e-008, 0, 1, 0, -7.45058e-008, 0, -1, -0.25, 0, -2.9 )
+
+[node name="Wall8" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 7.45058e-008, 0, 1, 0, -7.45058e-008, 0, -1, -1.45, 0, -2.9 )
 
 [node name="Wall6" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, 7.45058e-008, 0, 1, 0, -7.45058e-008, 0, -1, 1.65, 0, -2.55 )
+transform = Transform( -1, 0, 7.45058e-008, 0, 1, 0, -7.45058e-008, 0, -1, 0.95, 0, -2.9 )
+
+[node name="Wall7" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 7.45058e-008, 0, 1, 0, -7.45058e-008, 0, -1, 2.15, 0, -2.9 )

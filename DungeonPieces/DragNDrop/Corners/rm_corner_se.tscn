@@ -11,16 +11,28 @@
 [node name="dirt_model" parent="Ground" instance=ExtResource( 1 )]
 
 [node name="Wall2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 2.55, 0, -0.35 )
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 2.9, 0, 0.6 )
+
+[node name="Wall3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 2.9, 0, -0.6 )
+
+[node name="Wall7" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 2.9, 0, -1.8 )
 
 [node name="Wall4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 2.55, 0, 1.65 )
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 2.9, 0, 1.8 )
 
 [node name="Wall5" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, -1.61929e-007, 0, 1, 0, 1.61929e-007, 0, 1, 0.25, 0, 2.55 )
+transform = Transform( 1, 0, -1.61929e-007, 0, 1, 0, 1.61929e-007, 0, 1, 1.6, 0, 2.9 )
 
 [node name="Wall6" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, -1.61929e-007, 0, 1, 0, 1.61929e-007, 0, 1, -1.65, 0, 2.55 )
+transform = Transform( 1, 0, -1.61929e-007, 0, 1, 0, 1.61929e-007, 0, 1, 0.4, 0, 2.9 )
+
+[node name="Wall8" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, -1.61929e-007, 0, 1, 0, 1.61929e-007, 0, 1, -0.8, 0, 2.9 )
+
+[node name="Wall9" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, -1.61929e-007, 0, 1, 0, 1.61929e-007, 0, 1, -2, 0, 2.9 )
 
 [node name="Corner4" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1, 0, 2.21533e-007, 0, 1, 0, -2.21533e-007, 0, -1, 2.55, 0, 2.55 )
+transform = Transform( -1, 0, 2.21533e-007, 0, 1, 0, -2.21533e-007, 0, -1, 2.9, 0, 2.9 )
