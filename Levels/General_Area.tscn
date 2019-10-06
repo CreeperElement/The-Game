@@ -13,7 +13,7 @@ material = SubResource( 1 )
 size = Vector2( 100, 100 )
 
 [sub_resource type="ConvexPolygonShape" id=3]
-points = PoolVector3Array( 5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, -5 )
+points = PoolVector3Array( 50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, -50 )
 
 [node name="Spatial" type="Spatial"]
 
