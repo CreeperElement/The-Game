@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Player/2.5D_Character.gd" type="Script" id=1]
-
+[ext_resource path="res://Players/2.5D_Character.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5

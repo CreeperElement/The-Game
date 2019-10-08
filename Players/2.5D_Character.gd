@@ -32,4 +32,3 @@ func get_input():
 		velocity.x -= speed
 	if Input.is_action_pressed("move_right"):
 		velocity.x += speed
-	
