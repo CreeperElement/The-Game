@@ -37,12 +37,6 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 shape = SubResource( 2 )
 
-[node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.719542, 0.694448, 0, -0.694448, 0.719542, 0, 4.61492, 1.94731 )
-
-[node name="Camera" type="Camera" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, -2.98023e-008, 0, 2.98023e-008, 1, 0, 0, 5.065 )
-
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0 )
 mesh = SubResource( 4 )
