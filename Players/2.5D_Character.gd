@@ -4,11 +4,16 @@ var gravity = Vector3.DOWN * 12
 #var max_speed = 8
 var speed = 4
 var velocity = Vector3()
+onready var body = get_node("Body")
+#var t = body.get_transform()
+#var lastPos = t.origin()
+#var value = 0
 
 func _physics_process(delta):
 	velocity += gravity * delta
 	get_input()
 	velocity = move_and_slide(velocity, Vector3.UP)
+	#turn_model(delta)
 
 func get_input():
 #	var input_dir = Vector3()
@@ -32,3 +37,14 @@ func get_input():
 		velocity.x -= speed
 	if Input.is_action_pressed("move_right"):
 		velocity.x += speed
+		
+#func turn_model(delta):
+#	var lookDir = t.origin - lastPos
+#	lastPos = t.origin
+#	var rotTransform = t.looking_at(lookDir,Vector3(0,1,0))
+#	var thisRotation = Quat(t.basis).slerp(rotTransform.basis,value)
+#	value += delta
+#	if value>1:
+#    value = 1
+#	set_transform(Transform(thisRotation,t.origin))
+	

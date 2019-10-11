@@ -38,6 +38,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.816493, 5.30164, -0.557111 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.92662 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00467062, 5.43596, -0.241548 )
 
 [node name="Enemy1" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16933, 0.503489, -2.04484 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.31719, 1.05593, -2.79761 )
