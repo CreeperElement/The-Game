@@ -1,6 +1,7 @@
 extends Spatial
 
-export var Scale = Vector3(.2, .2, .2)
+export var Scale = Vector3(.4, .4, .4)
+onready var HalfWall = preload("res://DungeonPieces/DragNDrop/half_wall.tscn")
 var camera
 
 # Called when the node enters the scene tree for the first time.
@@ -21,10 +22,13 @@ func _handle_mouse_event(mouseEvent):
 func _handle_mouse_button(mouseButtonEvent):
 	if mouseButtonEvent.button_index == BUTTON_LEFT:
 		if mouseButtonEvent.pressed:
-			var dropPlane  = Plane(Vector3(0, 0, 1), 0)
+			var dropPlane  = Plane(Vector3(0, 1, 0), 0)
 			var position3D = dropPlane.intersects_ray(
 								camera.project_ray_origin(mouseButtonEvent.position),
 								camera.project_ray_normal(mouseButtonEvent.position))
+			var newWall = HalfWall.instance()
+			newWall.transform.origin = _snap_to_grid(position3D);
+			add_child(newWall)
 			print("Converted Clikc at: ", position3D, " to: ", _snap_to_grid(position3D))
 			
 		else:
