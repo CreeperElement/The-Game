@@ -1,8 +1,9 @@
 extends Spatial
 
-export var Scale = Vector3(.4, .4, .4)
+export var Scale = Vector3(.4, .4, .2)
 onready var HalfWall = preload("res://DungeonPieces/DragNDrop/half_wall.tscn")
 var camera
+var mouse_down
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,20 +23,27 @@ func _handle_mouse_event(mouseEvent):
 func _handle_mouse_button(mouseButtonEvent):
 	if mouseButtonEvent.button_index == BUTTON_LEFT:
 		if mouseButtonEvent.pressed:
+			mouse_down = true
 			var dropPlane  = Plane(Vector3(0, 1, 0), 0)
 			var position3D = dropPlane.intersects_ray(
 								camera.project_ray_origin(mouseButtonEvent.position),
 								camera.project_ray_normal(mouseButtonEvent.position))
-			var newWall = HalfWall.instance()
-			newWall.transform.origin = _snap_to_grid(position3D);
-			add_child(newWall)
-			print("Converted Clikc at: ", position3D, " to: ", _snap_to_grid(position3D))
-			
+			_add_tile(position3D)
 		else:
-			print("Mouse Left Release at: ", mouseButtonEvent.position)
+			mouse_down = false
 
 func _handle_mouse_move(mouseMoveEvent):
-	pass
+	if(mouse_down):
+		var dropPlane  = Plane(Vector3(0, 1, 0), 0)
+		var position3D = dropPlane.intersects_ray(
+							camera.project_ray_origin(mouseMoveEvent.position),
+							camera.project_ray_normal(mouseMoveEvent.position))
+		_add_tile(position3D)
+
+func _add_tile(position):
+	var newWall = HalfWall.instance()
+	newWall.transform.origin = _snap_to_grid(position);
+	add_child(newWall)
 
 func _snap_to_grid(coordinate):
 	var coord = coordinate as Vector3
