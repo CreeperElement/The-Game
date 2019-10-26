@@ -30,10 +30,10 @@ transform = Transform( 1.18217e-007, 0, 1, 0, 1, 0, -1, 0, 1.18217e-007, 2.9, 0,
 [node name="Wall12" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1.18217e-007, 0, 1, 0, 1, 0, -1, 0, 1.18217e-007, 2.9, 0, 1 )
 
-[node name="Wall13" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.18217e-007, 0, 1, 0, 1, 0, -1, 0, 1.18217e-007, 2.9, 0, 2.2 )
-
 [node name="Spatial" parent="." instance=ExtResource( 2 )]
 
 [node name="Spatial2" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 2.9, 0, -2.9 )
+
+[node name="Wall13" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.18217e-007, 0, 1, 0, 1, 0, -1, 0, 1.18217e-007, 2.9, 0, 2.2 )
