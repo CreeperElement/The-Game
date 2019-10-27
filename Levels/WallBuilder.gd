@@ -1,17 +1,19 @@
 extends Spatial
 
-export var Scale = Vector3(.4, .4, .2)
+export var Scale = Vector3(.4, .4, .4)
 onready var HalfWall = preload("res://DungeonPieces/DragNDrop/half_wall.tscn")
 onready var HalfWall_Ghost = preload("res://DungeonPieces/DragNDrop/half_wall_ghost.tscn")
 var ghost_wall
 var camera
 var mouse_down
+var dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camera = get_node("Camera")
 	ghost_wall = HalfWall_Ghost.instance()
 	add_child(ghost_wall)
+	dictionary = {}
 
 func _input(event):
 	if(event is InputEventMouse):
@@ -46,9 +48,13 @@ func _handle_mouse_move(mouseMoveEvent):
 	ghost_wall.transform.origin = _snap_to_grid(position3D)
 
 func _add_tile(position):
-	var newWall = HalfWall.instance()
-	newWall.transform.origin = _snap_to_grid(position);
-	add_child(newWall)
+	var grid_coords = _snap_to_grid(position)
+	if(!dictionary.has(grid_coords)):
+		var newWall = HalfWall.instance()
+		newWall.transform.origin = grid_coords
+		add_child(newWall)
+		dictionary[grid_coords] = newWall
+		print("Added one")
 
 func _snap_to_grid(coordinate):
 	var coord = coordinate as Vector3
