@@ -2,12 +2,16 @@ extends Spatial
 
 export var Scale = Vector3(.4, .4, .2)
 onready var HalfWall = preload("res://DungeonPieces/DragNDrop/half_wall.tscn")
+onready var HalfWall_Ghost = preload("res://DungeonPieces/DragNDrop/half_wall_ghost.tscn")
+var ghost_wall
 var camera
 var mouse_down
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camera = get_node("Camera")
+	ghost_wall = HalfWall_Ghost.instance()
+	add_child(ghost_wall)
 
 func _input(event):
 	if(event is InputEventMouse):
@@ -33,12 +37,13 @@ func _handle_mouse_button(mouseButtonEvent):
 			mouse_down = false
 
 func _handle_mouse_move(mouseMoveEvent):
+	var dropPlane  = Plane(Vector3(0, 1, 0), 0)
+	var position3D = dropPlane.intersects_ray(
+						camera.project_ray_origin(mouseMoveEvent.position),
+						camera.project_ray_normal(mouseMoveEvent.position))
 	if(mouse_down):
-		var dropPlane  = Plane(Vector3(0, 1, 0), 0)
-		var position3D = dropPlane.intersects_ray(
-							camera.project_ray_origin(mouseMoveEvent.position),
-							camera.project_ray_normal(mouseMoveEvent.position))
 		_add_tile(position3D)
+	ghost_wall.transform.origin = _snap_to_grid(position3D)
 
 func _add_tile(position):
 	var newWall = HalfWall.instance()

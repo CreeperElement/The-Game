@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Models/Brick/brick.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://DungeonPieces/DragNDrop/materials/ghost_wall.tres" type="Material" id=2]
 
 [sub_resource type="GDScript" id=1]
 script/source = "tool
@@ -43,36 +44,36 @@ transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 0, 0,
 script = SubResource( 1 )
 
 [node name="BrickGrouping" type="Spatial" parent="."]
-editor/display_folded = true
 transform = Transform( -3.93403e-007, 0, 1, 0, 1, 0, -1, 0, -3.93403e-007, -0.0999999, 0, 5.96046e-008 )
 
 [node name="RigidBody" type="RigidBody" parent="BrickGrouping"]
+editor/display_folded = true
 
 [node name="CollisionShape" type="CollisionShape" parent="BrickGrouping/RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 2 )
 
 [node name="brick" type="MeshInstance" parent="BrickGrouping"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.1, 0 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00121148, 0.1, -4.19021e-005 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="brick7" type="MeshInstance" parent="BrickGrouping"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="brick14" type="MeshInstance" parent="BrickGrouping"]
 transform = Transform( 0.1, 0, -3.72529e-009, 0, 0.1, 0, 3.72529e-009, 0, 0.1, 0, 0.9, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="brick4" type="MeshInstance" parent="BrickGrouping"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.3, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
 
 [node name="brick10" type="MeshInstance" parent="BrickGrouping"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.7, 0 )
 mesh = ExtResource( 1 )
-material/0 = null
+material/0 = ExtResource( 2 )
