@@ -20,7 +20,6 @@ func _ready():
 
 func set_IsHorizontal(value):
 	IsHorizontal = value
-	var look_direction;
 	if(value):
 		Grouping.rotate_y(deg2rad(90))
 		Grouping.translate(Vector3(-.1, 0, .1))

@@ -54,7 +54,24 @@ func _add_tile(position):
 		newWall.transform.origin = grid_coords
 		add_child(newWall)
 		dictionary[grid_coords] = newWall
-		print("Added one")
+		
+		if(dictionary.has(grid_coords + Vector3(Scale.x, 0, 0))):
+			dictionary[grid_coords + Vector3(Scale.x, 0, 0)].IsVertical = true
+			newWall.IsVertical = true
+		elif(dictionary.has(grid_coords - Vector3(Scale.x, 0, 0))):
+			dictionary[grid_coords - Vector3(Scale.x, 0, 0)].IsVertical = true
+			newWall.IsVertical = true
+		else:
+			newWall.IsVertical = false
+		
+		if(dictionary.has(grid_coords + Vector3(0, 0, Scale.y))):
+			dictionary[grid_coords + Vector3(0, 0, Scale.y)].IsHorizontal = true
+			newWall.IsHorizontal = true
+		elif(dictionary.has(grid_coords - Vector3(0, 0, Scale.y))):
+			dictionary[grid_coords - Vector3(0, 0, Scale.y)].IsHorizontal = true
+			newWall.IsHorizontal = true
+		else:
+			newWall.IsHorizontal = false
 
 func _snap_to_grid(coordinate):
 	var coord = coordinate as Vector3
