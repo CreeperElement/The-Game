@@ -56,22 +56,45 @@ func _add_tile(position):
 		dictionary[grid_coords] = newWall
 		
 		if(dictionary.has(grid_coords + Vector3(Scale.x, 0, 0))):
-			dictionary[grid_coords + Vector3(Scale.x, 0, 0)].IsVertical = true
 			newWall.IsVertical = true
+			var aboveWall = dictionary[grid_coords + Vector3(Scale.x, 0, 0)]
+			aboveWall.IsVertical = true
+			aboveWall.IsHorizontal = (
+				dictionary.has(aboveWall.transform.origin + Vector3(0, 0, scale.z)) or 
+				dictionary.has(aboveWall.transform.origin - Vector3(0, 0, scale.z))
+				)
 		elif(dictionary.has(grid_coords - Vector3(Scale.x, 0, 0))):
-			dictionary[grid_coords - Vector3(Scale.x, 0, 0)].IsVertical = true
 			newWall.IsVertical = true
+			var belowWall = dictionary[grid_coords - Vector3(Scale.x, 0, 0)]
+			belowWall.IsVertical = true
+			belowWall.IsHorizontal = (
+				dictionary.has(belowWall.transform.origin + Vector3(0, 0, scale.z)) or 
+				dictionary.has(belowWall.transform.origin - Vector3(0, 0, scale.z))
+				)
 		else:
 			newWall.IsVertical = false
 		
 		if(dictionary.has(grid_coords + Vector3(0, 0, Scale.y))):
-			dictionary[grid_coords + Vector3(0, 0, Scale.y)].IsHorizontal = true
 			newWall.IsHorizontal = true
+			var rightWall = dictionary[grid_coords + Vector3(0, 0, Scale.y)]
+			rightWall.IsHorizontal = true
+			rightWall.IsVertical = (
+				dictionary.has(rightWall.transform.origin + Vector3(scale.x, 0, 0)) or 
+				dictionary.has(rightWall.transform.origin - Vector3(scale.x, 0, 0))
+				)
 		elif(dictionary.has(grid_coords - Vector3(0, 0, Scale.y))):
-			dictionary[grid_coords - Vector3(0, 0, Scale.y)].IsHorizontal = true
 			newWall.IsHorizontal = true
+			var leftWall = dictionary[grid_coords - Vector3(0, 0, Scale.y)]
+			leftWall.IsHorizontal = true
+			leftWall.IsVertical = (
+				dictionary.has(leftWall.transform.origin + Vector3(scale.x, 0, 0)) or 
+				dictionary.has(leftWall.transform.origin - Vector3(scale.x, 0, 0))
+				)
 		else:
 			newWall.IsHorizontal = false
+			
+		if(!newWall.IsHorizontal and !newWall.IsVertical):
+			newWall.IsHorizontal = true
 
 func _snap_to_grid(coordinate):
 	var coord = coordinate as Vector3
