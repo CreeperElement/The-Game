@@ -48,53 +48,32 @@ func _handle_mouse_move(mouseMoveEvent):
 	ghost_wall.transform.origin = _snap_to_grid(position3D)
 
 func _add_tile(position):
+	var cardinalDirections = [
+		Vector3(Scale.x, 0, 0), # North
+		Vector3(0, 0, Scale.z), #East
+		Vector3(-Scale.x, 0, 0), #South
+		Vector3(0, 0, -Scale.z) # West
+		]
 	var grid_coords = _snap_to_grid(position)
 	if(!dictionary.has(grid_coords)):
 		var newWall = HalfWall.instance()
-		newWall.transform.origin = grid_coords
 		add_child(newWall)
+		newWall.transform.origin = grid_coords
+		newWall.IsHorizontal = (dictionary.has(grid_coords+cardinalDirections[1]) 
+			or dictionary.has(grid_coords+cardinalDirections[3]))
+		newWall.IsVertical = (dictionary.has(grid_coords+cardinalDirections[0]) 
+			or dictionary.has(grid_coords+cardinalDirections[2]))
 		dictionary[grid_coords] = newWall
 		
-		if(dictionary.has(grid_coords + Vector3(Scale.x, 0, 0))):
-			newWall.IsVertical = true
-			var aboveWall = dictionary[grid_coords + Vector3(Scale.x, 0, 0)]
-			aboveWall.IsVertical = true
-			aboveWall.IsHorizontal = (
-				dictionary.has(aboveWall.transform.origin + Vector3(0, 0, scale.z)) or 
-				dictionary.has(aboveWall.transform.origin - Vector3(0, 0, scale.z))
-				)
-		elif(dictionary.has(grid_coords - Vector3(Scale.x, 0, 0))):
-			newWall.IsVertical = true
-			var belowWall = dictionary[grid_coords - Vector3(Scale.x, 0, 0)]
-			belowWall.IsVertical = true
-			belowWall.IsHorizontal = (
-				dictionary.has(belowWall.transform.origin + Vector3(0, 0, scale.z)) or 
-				dictionary.has(belowWall.transform.origin - Vector3(0, 0, scale.z))
-				)
-		else:
-			newWall.IsVertical = false
-		
-		if(dictionary.has(grid_coords + Vector3(0, 0, Scale.y))):
-			newWall.IsHorizontal = true
-			var rightWall = dictionary[grid_coords + Vector3(0, 0, Scale.y)]
-			rightWall.IsHorizontal = true
-			rightWall.IsVertical = (
-				dictionary.has(rightWall.transform.origin + Vector3(scale.x, 0, 0)) or 
-				dictionary.has(rightWall.transform.origin - Vector3(scale.x, 0, 0))
-				)
-		elif(dictionary.has(grid_coords - Vector3(0, 0, Scale.y))):
-			newWall.IsHorizontal = true
-			var leftWall = dictionary[grid_coords - Vector3(0, 0, Scale.y)]
-			leftWall.IsHorizontal = true
-			leftWall.IsVertical = (
-				dictionary.has(leftWall.transform.origin + Vector3(scale.x, 0, 0)) or 
-				dictionary.has(leftWall.transform.origin - Vector3(scale.x, 0, 0))
-				)
-		else:
-			newWall.IsHorizontal = false
-			
-		if(!newWall.IsHorizontal and !newWall.IsVertical):
-			newWall.IsHorizontal = true
+	for direction in cardinalDirections:
+		var connectedPosition = grid_coords + direction
+		if(!dictionary.has(connectedPosition)):
+			continue # Skips to the top of the for loop
+		var connectedWall = dictionary[connectedPosition]
+		connectedWall.IsHorizontal = (dictionary.has(connectedPosition+cardinalDirections[1]) 
+			or dictionary.has(connectedPosition+cardinalDirections[3]))
+		connectedWall.IsVertical = (dictionary.has(connectedPosition+cardinalDirections[0]) 
+			or dictionary.has(connectedPosition+cardinalDirections[2]))
 
 func _snap_to_grid(coordinate):
 	var coord = coordinate as Vector3
