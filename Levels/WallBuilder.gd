@@ -1,12 +1,22 @@
 extends Spatial
 
 export var Scale = Vector3(.4, .4, .4)
-onready var HalfWall = preload("res://DungeonPieces/DragNDrop/half_wall.tscn")
-onready var HalfWall_Ghost = preload("res://DungeonPieces/DragNDrop/half_wall_ghost.tscn")
+onready var HalfWall = preload("res://DungeonPieces/half_wall.tscn")
+onready var HalfWall_Ghost = preload("res://DungeonPieces/half_wall_ghost.tscn")
 var ghost_wall
 var camera
 var mouse_down
 var dictionary
+
+var cardinalDirections = [
+	Vector3(Scale.x, 0, 0),  # North
+	Vector3(-Scale.x, 0, 0), # South
+	Vector3(0, 0, Scale.z),  # East
+	Vector3(0, 0, -Scale.z)] # West
+var NORTH = cardinalDirections[0]
+var SOUTH = cardinalDirections[1]
+var EAST = cardinalDirections[2]
+var WEST = cardinalDirections[3]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,21 +58,12 @@ func _handle_mouse_move(mouseMoveEvent):
 	ghost_wall.transform.origin = _snap_to_grid(position3D)
 
 func _add_tile(position):
-	var cardinalDirections = [
-		Vector3(Scale.x, 0, 0), # North
-		Vector3(0, 0, Scale.z), #East
-		Vector3(-Scale.x, 0, 0), #South
-		Vector3(0, 0, -Scale.z) # West
-		]
 	var grid_coords = _snap_to_grid(position)
 	if(!dictionary.has(grid_coords)):
 		var newWall = HalfWall.instance()
 		add_child(newWall)
 		newWall.transform.origin = grid_coords
-		newWall.IsHorizontal = (dictionary.has(grid_coords+cardinalDirections[1]) 
-			or dictionary.has(grid_coords+cardinalDirections[3]))
-		newWall.IsVertical = (dictionary.has(grid_coords+cardinalDirections[0]) 
-			or dictionary.has(grid_coords+cardinalDirections[2]))
+		_modify_wall_orientation(newWall)
 		dictionary[grid_coords] = newWall
 		
 	for direction in cardinalDirections:
@@ -70,10 +71,29 @@ func _add_tile(position):
 		if(!dictionary.has(connectedPosition)):
 			continue # Skips to the top of the for loop
 		var connectedWall = dictionary[connectedPosition]
-		connectedWall.IsHorizontal = (dictionary.has(connectedPosition+cardinalDirections[1]) 
-			or dictionary.has(connectedPosition+cardinalDirections[3]))
-		connectedWall.IsVertical = (dictionary.has(connectedPosition+cardinalDirections[0]) 
-			or dictionary.has(connectedPosition+cardinalDirections[2]))
+		_modify_wall_orientation(connectedWall)
+
+func _modify_wall_orientation(wall, default_horizontal = true, default_vetical = false):
+	var is_horizontal = false
+	var is_vertical = false
+	var wall_position = wall.transform.origin
+	
+	if dictionary.has(wall_position + EAST):
+		is_horizontal = true
+	else:
+		if dictionary.has(wall_position + NORTH) or dictionary.has(wall_position + SOUTH):
+			is_horizontal = dictionary.has(wall_position + WEST) # Bottom right corner
+	
+	if(dictionary.has(wall_position + NORTH)):
+		is_vertical = true
+	
+	# Should we or should we not use a default?
+	if is_horizontal or is_vertical:
+		wall.IsVertical = is_vertical
+		wall.IsHorizontal = is_horizontal
+	else:
+		wall.IsVertical = default_vetical
+		wall.IsHorizontal = default_horizontal
 
 func _snap_to_grid(coordinate):
 	var coord = coordinate as Vector3

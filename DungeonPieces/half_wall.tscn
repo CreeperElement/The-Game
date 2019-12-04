@@ -54,7 +54,7 @@ script = SubResource( 1 )
 
 [node name="YGrouping" type="Spatial" parent="."]
 editor/display_folded = true
-transform = Transform( -3.93403e-007, 0, 1, 0, 1, 0, -1, 0, -3.93403e-007, -0.0999999, 0, 5.96046e-008 )
+transform = Transform( -3.93403e-007, 0, 1, 0, 1, 0, -1, 0, -3.93403e-007, 1.1305e-007, 0, 0.1 )
 
 [node name="RigidBody" type="RigidBody" parent="YGrouping"]
 
@@ -89,7 +89,7 @@ material/0 = null
 
 [node name="XGrouping" type="Spatial" parent="."]
 editor/display_folded = true
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -0.4, 0, -0.0999999 )
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -0.3, 0, 9.32821e-008 )
 
 [node name="RigidBody" type="RigidBody" parent="XGrouping"]
 

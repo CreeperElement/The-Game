@@ -9,7 +9,8 @@
 [ext_resource path="res://DungeonPieces/DragNDrop/Walls/rm_walls_s.tscn" type="PackedScene" id=7]
 [ext_resource path="res://DungeonPieces/DragNDrop/Walls/rm_walls_w.tscn" type="PackedScene" id=8]
 [ext_resource path="res://DungeonPieces/DragNDrop/Corners/rm_corner_ne.tscn" type="PackedScene" id=9]
-[ext_resource path="res://DungeonPieces/DragNDrop/half_wall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://DungeonPieces/half_wall.tscn" type="PackedScene" id=10]
+
 
 [node name="Spatial" type="Spatial"]
 
