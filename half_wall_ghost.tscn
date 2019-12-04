@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Models/Brick/brick.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://DungeonPieces/materials/ghost_wall.tres" type="Material" id=2]
+
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends Spatial
+
+export (bool) var IsHorizontal = true setget set_IsHorizontal, get_IsHorizontal
+onready var Grouping;
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Grouping = get_node(\"BrickGrouping\")
+
+func set_IsHorizontal(value):
+	IsHorizontal = value
+	if(value):
+		Grouping.rotate_y(deg2rad(90))
+		Grouping.translate(Vector3(-.1, 0, .1))
+	else:
+		Grouping.translate(Vector3(.1, 0, -.1))
+		Grouping.rotate_y(deg2rad(-90))
+
+func get_IsHorizontal():
+	return IsHorizontal
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.2, 0.5, 0.1 )
+
+[node name="HalfWall" type="Spatial"]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 0, 0, 0 )
+script = SubResource( 1 )
+
+[node name="BrickGrouping" type="Spatial" parent="."]
+transform = Transform( -3.93403e-007, 0, 1, 0, 1, 0, -1, 0, -3.93403e-007, -0.0999999, 0, 5.96046e-008 )
+
+[node name="RigidBody" type="RigidBody" parent="BrickGrouping"]
+editor/display_folded = true
+
+[node name="CollisionShape" type="CollisionShape" parent="BrickGrouping/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 2 )
+
+[node name="brick" type="MeshInstance" parent="BrickGrouping"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.00121148, 0.1, -4.19021e-005 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="brick7" type="MeshInstance" parent="BrickGrouping"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="brick14" type="MeshInstance" parent="BrickGrouping"]
+transform = Transform( 0.1, 0, -3.72529e-009, 0, 0.1, 0, 3.72529e-009, 0, 0.1, 0, 0.9, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="brick4" type="MeshInstance" parent="BrickGrouping"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.3, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="brick10" type="MeshInstance" parent="BrickGrouping"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.2, 0.7, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
