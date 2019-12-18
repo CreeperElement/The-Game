@@ -5,14 +5,18 @@ var gravity = Vector3.DOWN * 12
 var speed = 4
 var velocity = Vector3()
 onready var body = get_node("Body")
+var tagged = false
+
 #var t = body.get_transform()
 #var lastPos = t.origin()
 #var value = 0
 
 func _physics_process(delta):
+	display_status()
 	velocity += gravity * delta
 	get_input()
 	velocity = move_and_slide(velocity, Vector3.UP)
+	
 	#turn_model(delta)
 
 func get_input():
@@ -47,4 +51,13 @@ func get_input():
 #	if value>1:
 #    value = 1
 #	set_transform(Transform(thisRotation,t.origin))
+
+func _on_Collision_body_entered(body):
+	tagged = !tagged
+	
+func display_status():
+	if(tagged):
+		$Status.show()
+	if(!tagged):
+		$Status.hide()
 	
