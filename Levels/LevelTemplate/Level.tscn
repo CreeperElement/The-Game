@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/LevelTemplate/Level.gd" type="Script" id=1]
+[ext_resource path="res://Levels/LevelTemplate/Rectangle.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TimeLabel" type="Label" parent="."]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "TIme: 00:00"
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 9.0
+margin_top = 28.0
+margin_right = 80.0
+margin_bottom = 48.0
+text = "Start"
+
+[node name="ResetButton" type="Button" parent="."]
+margin_left = 191.0
+margin_top = 28.0
+margin_right = 298.0
+margin_bottom = 48.0
+text = "Reset"
+
+[node name="PauseButton" type="Button" parent="."]
+margin_left = 91.0
+margin_top = 28.0
+margin_right = 181.0
+margin_bottom = 48.0
+text = "Pause"
+
+[node name="EndGameButton" type="Button" parent="."]
+margin_left = 310.0
+margin_top = 28.0
+margin_right = 418.0
+margin_bottom = 48.0
+text = "End"
+
+[node name="PlayerContainer" type="Node2D" parent="."]
+position = Vector2( 487, 1 )
+script = ExtResource( 2 )
+
+[node name="PlayerSprite" type="ColorRect" parent="PlayerContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.858824, 0.105882, 0.105882, 1 )
+
+[node name="ScoreVBox" type="VBoxContainer" parent="."]
+margin_top = 91.0
+margin_right = 158.0
+margin_bottom = 131.0
+
+[node name="TopScoreLabel" type="Label" parent="ScoreVBox"]
+margin_right = 158.0
+margin_bottom = 14.0
+text = "Top Score"
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_Pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_Reset_Pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_Pressed"]
+[connection signal="pressed" from="EndGameButton" to="." method="_on_EndGameButton_Pressed"]

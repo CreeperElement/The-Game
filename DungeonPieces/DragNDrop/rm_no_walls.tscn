@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://DungeonPieces/Dirt.tscn" type="PackedScene" id=1]
+
+[node name="NoWalls" type="Spatial"]
+
+[node name="Dirt" parent="." instance=ExtResource( 1 )]
