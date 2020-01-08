@@ -41,4 +41,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00467062, 5.43596, -0.241548
 transform = Transform( -4.37114e-008, 0.34202, -0.939693, 0, 0.939693, 0.34202, 1, 1.49502e-008, -4.10753e-008, -7.401, 2.12, 0 )
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.53541, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03525, 2.97344 )
