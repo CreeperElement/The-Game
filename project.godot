@@ -16,12 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Project1"
-run/main_scene="res://Levels/WallBuilder.tscn"
+run/main_scene="res://Levels/Welcome.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 HighScores="*res://Scripts/Global/HighScores.gd"
+GameState="*res://Scripts/Global/GameState.gd"
 
 [display]
 
