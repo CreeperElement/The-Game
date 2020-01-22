@@ -13,17 +13,20 @@ func _physics_process(delta):
 
 func move(delta):
 	velocity += gravity * delta
-	if velocity.z > terminal_velocity:
-		velocity.z = terminal_velocity
+	if velocity.y > terminal_velocity:
+		velocity.y = terminal_velocity
 	var distance_to_target = transform.origin.distance_to(target)
 	
 	var direction = target - transform.origin
 	direction = Vector2(direction.x, direction.z)
-	if(direction.length() >= 1):
+	if(distance_to_target >= 1):
 		direction = direction.normalized()
+		acceleration = max_speed
+	else:
+		acceleration = 0
 
 	direction *= acceleration * delta
 	velocity.x += direction.x
 	velocity.z += direction.y
 	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	move_and_slide(velocity, Vector3.UP)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://DungeonPieces/Crate.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemies/KinematicEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/KinematicEntity.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.4, 0.239216, 0.054902, 1 )
