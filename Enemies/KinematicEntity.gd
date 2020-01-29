@@ -10,6 +10,7 @@ var target = Vector3(0, 0, 0)
 
 func _physics_process(delta):
 	move(delta)
+	look(delta)
 
 func move(delta):
 	velocity += gravity * delta
@@ -23,10 +24,30 @@ func move(delta):
 		direction = direction.normalized()
 		acceleration = max_speed
 	else:
-		acceleration = 0
+		if(distance_to_target > .05):
+			direction = direction.normalized()
+		else:
+			acceleration = 0
+			velocity = Vector3(0, 0, 0)
+			transform.origin = Vector3(target.x, transform.origin.y, target.z)
+			return
 
 	direction *= acceleration * delta
 	velocity.x += direction.x
 	velocity.z += direction.y
 	
+	if(velocity.length() >= max_speed):
+		velocity = velocity.normalized() * max_speed
+	
 	move_and_slide(velocity, Vector3.UP)
+
+
+func look(delta):
+	var localTarget = Vector2(target.x, target.z)
+	var localOrigin = Vector2(transform.origin.z, transform.origin.z)
+	var direction = localOrigin - localTarget
+	if(direction.length() > .75):
+		direction = direction.normalized()
+		look_at(target, Vector3.UP);
+	else:
+		look_at(transform.origin + Vector3(direction.normalized().x, 0, direction.normalized().y), Vector3.UP)
