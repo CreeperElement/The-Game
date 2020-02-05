@@ -7,7 +7,6 @@ var terminal_velocity = 200
 var velocity = Vector3(0, 0, 0)
 var target = Vector3(0, 0, 0)
 
-
 func _physics_process(delta):
 	move(delta)
 	look(delta)
