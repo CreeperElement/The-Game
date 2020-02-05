@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://DungeonPieces/Crate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://DungeonPieces/Crate.gd" type="Script" id=2]
+[ext_resource path="res://ModelsWithCollision/InvisibleFloor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ModelsWithCollision/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ModelsWithCollision/Fence2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ModelsWithCollision/FenceBroken1.tscn" type="PackedScene" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Crate" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120258, 1.91418, -0.198021 )
+script = ExtResource( 2 )
+
+[node name="Crate2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157767, 6.39676, -0.0772921 )
+mass = 9.54
+script = ExtResource( 2 )
+
+[node name="StaticBody" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.211519, -0.00157146, 0.118931 )
+
+[node name="StaticBody" parent="StaticBody" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.195636 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.887068, 0.46164, 0, -0.46164, 0.887068, -0.0124182, 2.15887, 5.58084 )
+
+[node name="RigidBody" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77241, 0, 0 )
+
+[node name="StaticBody2" parent="." instance=ExtResource( 6 )]
