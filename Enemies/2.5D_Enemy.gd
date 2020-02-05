@@ -22,5 +22,3 @@ func _physics_process(delta):
 	var rotTransform = body.looking_at(get_transform().origin + lookDir,Vector3())
 	var thisRotation = Quat(rotTransform.basis)
 	set_transform(Transform(thisRotation, target.origin))
-
-	

@@ -9,3 +9,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.686252, 0 )
 transform = Transform( 1, 0, 0, 0, 0.891681, 0.452664, 0, -0.452664, 0.891681, 0, 0.861485, 1.69877 )
 current = true
 script = ExtResource( 1 )
+distance = 5.0
+height = 2.5
