@@ -23,6 +23,7 @@ func _process(delta):
 func _on_PlayButton_pressed():
 	# TODO: Implement game
 	$HBoxContainer/VBoxContainer/VBoxContainer/PlayButton.text = "LOL. You thought you could play?"
+	get_tree().change_scene("res://Spatial.tscn")
 
 func _on_ExitButton_pressed():
 	# Commit soduko
