@@ -5,6 +5,7 @@ export var scroll_speed = 500
 export var beams_count = 10
 export var size_multiplier = 120
 export var colors = ["#DF740C", "#FFE64D", "#E6FFFF", "#6FC3DF", "#0C141F"]
+export var offset_starting_x = false
 
 # Modified by the title screen
 var offset = Vector2(0, 0)
@@ -21,13 +22,16 @@ func _ready():
 	# Turn the boring hex strings into fabulous colors
 	for c in colors:
 		color_options.append(Color(c))
+		
+	if offset_starting_x:
+		x = -screen_size.x
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Scroll the pipes
 	x += delta * scroll_speed
 	if x > screen_size.x:
-		x = -screen_size.x
+		x = -2 * screen_size.x
 	position = Vector2(x + offset.x, offset.y)
 
 func _draw():
@@ -47,7 +51,7 @@ func _draw():
 		
 		# Randomize location
 		var rect = Rect2(
-			randi() % int(screen_size.x) - width, randi() % int(screen_size.y) - height,
+			randi() % int(screen_size.x * 2) - width, randi() % int(screen_size.y) - height,
 			width, height)
 		
 		# Draw the beam on the screen

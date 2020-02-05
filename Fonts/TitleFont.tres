@@ -3,5 +3,5 @@
 [ext_resource path="res://fonts/StoneWalls.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 240
+size = 360
 font_data = ExtResource( 1 )
