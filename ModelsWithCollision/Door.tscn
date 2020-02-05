@@ -3,12 +3,13 @@
 [ext_resource path="res://Models/Door.dae" type="PackedScene" id=1]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.117633, 1.14841, 1.07485 )
+extents = Vector3( 0.028625, 0.576897, 0.285325 )
 
-[node name="Door" index="0" instance=ExtResource( 1 )]
+[node name="StaticBody" type="StaticBody"]
 
-[node name="Area" type="Area" parent="." index="4"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
-transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2.323, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.623775, 0 )
 shape = SubResource( 1 )
+
+[node name="Door" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.187412, 0, 0, 0, 0.255796, 0, 0, 0, 0.251104, 0, 0, 0 )
