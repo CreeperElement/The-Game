@@ -5,7 +5,7 @@ var gravity = Vector3.DOWN * 12
 var speed = 4
 var velocity = Vector3()
 onready var body = get_node("Body")
-var tagged = false
+var tagged = true
 
 #var t = body.get_transform()
 #var lastPos = t.origin()
@@ -57,7 +57,8 @@ func _on_Collision_body_entered(body):
 	
 func display_status():
 	if(tagged):
-		$Status.show()
+		$Statusin3D/Viewport/Status.show()
 	if(!tagged):
-		$Status.hide()
+		$Statusin3D/Viewport/Status.hide()
+	$Statusin3D/Viewport/Status.set_global_position(Vector2(velocity.x, velocity.z))
 	
