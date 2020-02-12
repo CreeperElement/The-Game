@@ -1,13 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Players/2.5D_Character.gd" type="Script" id=1]
 [ext_resource path="res://Players/Statusin3D.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.5, 0.1, 0.5 )
 
 [sub_resource type="CylinderMesh" id=3]
 top_radius = 0.5
@@ -28,17 +25,13 @@ viewport_path = NodePath("Statusin3D/Viewport")
 
 [sub_resource type="SpatialMaterial" id=7]
 resource_local_to_scene = true
+albedo_color = Color( 1, 1, 1, 0 )
 albedo_texture = SubResource( 6 )
 
-[sub_resource type="ViewportTexture" id=8]
-viewport_path = NodePath("Statusin3D/Viewport")
+[sub_resource type="QuadMesh" id=8]
 
-[sub_resource type="SpatialMaterial" id=9]
-resource_local_to_scene = true
-albedo_texture = SubResource( 8 )
-
-[sub_resource type="QuadMesh" id=10]
-material = SubResource( 9 )
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.5, 0.1, 0.5 )
 
 [node name="Character" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -48,10 +41,6 @@ script = ExtResource( 1 )
 [node name="Body" type="CollisionShape" parent="Collision"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 1 )
-
-[node name="Feet" type="CollisionShape" parent="Collision"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
-shape = SubResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.719542, 0.694448, 0, -0.694448, 0.719542, 0, 4.61492, 1.94731 )
@@ -93,6 +82,10 @@ align = 3
 [node name="TagMesh" type="MeshInstance" parent="Statusin3D"]
 transform = Transform( 0.999779, 0.0171572, -0.0121751, 0.00943659, 0.151516, 0.988409, 0.018803, -0.988306, 0.151321, 0, 2.03718, -1.3844 )
 material_override = SubResource( 7 )
-mesh = SubResource( 10 )
+mesh = SubResource( 8 )
 material/0 = null
+
+[node name="Feet" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
+shape = SubResource( 2 )
 [connection signal="body_entered" from="Collision" to="." method="_on_Collision_body_entered"]

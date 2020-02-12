@@ -54,11 +54,15 @@ func get_input():
 
 func _on_Collision_body_entered(body):
 	tagged = !tagged
-	
+
+var alreadyVisible = false
+
 func display_status():
 	if(tagged):
-		$Statusin3D/Viewport/Status.show()
-	if(!tagged):
-		$Statusin3D/Viewport/Status.hide()
-	$Statusin3D/Viewport/Status.set_global_position(Vector2(velocity.x, velocity.z))
+		if(!alreadyVisible):
+			$Statusin3D.show()
+			alreadyVisible = true
+	else:
+		$Statusin3D.hide()
+		alreadyVisible = false
 	
