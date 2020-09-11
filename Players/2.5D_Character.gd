@@ -5,7 +5,7 @@ var gravity = Vector3.DOWN * 12
 var speed = 4
 var velocity = Vector3()
 onready var body = get_node("Body")
-var tagged = false
+var tagged = true
 
 #var t = body.get_transform()
 #var lastPos = t.origin()
@@ -54,10 +54,15 @@ func get_input():
 
 func _on_Collision_body_entered(body):
 	tagged = !tagged
-	
+
+var alreadyVisible = false
+
 func display_status():
 	if(tagged):
-		$Status.show()
-	if(!tagged):
-		$Status.hide()
+		if(!alreadyVisible):
+			$Statusin3D.show()
+			alreadyVisible = true
+	else:
+		$Statusin3D.hide()
+		alreadyVisible = false
 	
